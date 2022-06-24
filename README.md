@@ -1,4 +1,4 @@
-# Mauro's Keyboard Layout
+# Mauro's Keyboard Shortcuts
 <center>
   <img src="img/diagram.drawio.svg" />
 </center>
