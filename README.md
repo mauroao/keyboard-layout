@@ -6,7 +6,7 @@
 ## What is this used for?
 
 This is a configuration guide to setup my keyboard shortcuts on MAC and Windows.  
-I am using 60% keyboards without QMK firmware.
+I am using 60% keyboards with no QMK firmware support.
 
 ## Windows setup
 
