@@ -2,7 +2,11 @@
 <center>
   <img src="img/diagram.drawio.svg" />
 </center>
-A configuration guide setup to my keyboard shortcuts on MAC and Windows.
+
+## What is this used for?
+
+This is a configuration guide to setup my keyboard shortcuts on MAC and Windows.  
+I am using 60% keyboards without QMK firmware.
 
 ## Windows setup
 
