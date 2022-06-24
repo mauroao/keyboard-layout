@@ -30,7 +30,8 @@ Return
 	'::~
 #If
   ```
-3. Start this script;
+3. Double click on `script.ahk` script;
+4. Make sure script is running (look for an AutoHotkey icon on windows status bar);
 
 ## MAC Setup
 
@@ -39,7 +40,7 @@ Return
 4. Find `complex_modifications`. It will have a key `rules` that takes a list (`"rules": [...]`).
 5. Inside the square brackets, paste this:
 
-```json
+  ```json
                     {
                         "description": "Caps Lock + I/J/K/L to Arrow Keys, Caps + ; and ' to ` and ~ ",
                         "manipulators": [
@@ -213,4 +214,4 @@ Return
                         ]
                     }
 
-```
+  ```
