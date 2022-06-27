@@ -1,6 +1,6 @@
 # Mauro's Keyboard Shortcuts
 <center>
-  <img src="img/diagram.drawio.svg?" />
+  <img src="img/diagram.drawio.svg" />
 </center>
 
 ## What is this used for?
