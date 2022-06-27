@@ -15,20 +15,31 @@ I am using 60% keyboards with no QMK firmware support.
   ```
 RAlt::RControl
 
-CapsLock::
-	KeyWait, CapsLock
-	If (A_PriorKey="CapsLock")
-		SetCapsLockState, % GetKeyState("CapsLock","T") ? "Off" : "On"
-Return
+Space::return
 
-#If, GetKeyState("CapsLock", "P") 
-	h::Left
-	j::Down
-	k::Up
-	l::Right
-	`;::`
-	'::~
-#If
+Space Up::
+    if (A_PriorKey = "Space")
+    {
+        Send {Space}
+    }
+    return
+
+Space & k::Up
+Space & h::Left
+Space & j::Down
+Space & l::Right
+
+Space & `;::`
+Space & '::~
+
+Space & c::^c ; copy
+Space & x::^x ; cut
+Space & v::^v ; paste
+Space & z::^z ; undo 
+Space & a::^a ; select all
+Space & t::^t ; new tab 
+Space & m::#m ; minimize all
+
   ```
 3. Double click on `script.ahk` script;
 4. Make sure script is running (look for an AutoHotkey icon on windows status bar);
