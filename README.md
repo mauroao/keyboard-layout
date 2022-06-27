@@ -15,30 +15,29 @@ I am using 60% keyboards with no QMK firmware support.
   ```
 RAlt::RControl
 
-Space::return
+Space::
+    KeyWait, Space
+    If (A_PriorKey="Space")
+      Send {Space}
+    Return
 
-Space Up::
-    if (A_PriorKey = "Space")
-    {
-        Send {Space}
-    }
-    return
+#If, GetKeyState("Space", "P") 
+    k::Up
+    h::Left
+    j::Down
+    l::Right
 
-Space & k::Up
-Space & h::Left
-Space & j::Down
-Space & l::Right
+    `;::`
+    '::~
 
-Space & `;::`
-Space & '::~
-
-Space & c::^c ; copy
-Space & x::^x ; cut
-Space & v::^v ; paste
-Space & z::^z ; undo 
-Space & a::^a ; select all
-Space & t::^t ; new tab 
-Space & m::#m ; minimize all
+    c::^c ; copy
+    x::^x ; cut
+    v::^v ; paste
+    z::^z ; undo 
+    a::^a ; select all
+    t::^t ; new tab 
+    m::#m ; minimize all
+#If
 
   ```
 3. Double click on `script.ahk` script;
