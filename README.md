@@ -42,16 +42,16 @@ Return
 
   ```json
                     {
-                        "description": "Caps Lock + I/J/K/L to Arrow Keys, Caps + ; and ' to ` and ~ ",
+                        "description": "Space FN Mode",
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "caps_lock"
+                                    "key_code": "spacebar"
                                 },
                                 "to": [
                                     {
                                         "set_variable": {
-                                            "name": "caps_arrows_mode",
+                                            "name": "space_fn_mode",
                                             "value": 1
                                         }
                                     }
@@ -59,14 +59,14 @@ Return
                                 "to_after_key_up": [
                                     {
                                         "set_variable": {
-                                            "name": "caps_arrows_mode",
+                                            "name": "space_fn_mode",
                                             "value": 0
                                         }
                                     }
                                 ],
                                 "to_if_alone": [
                                     {
-                                        "key_code": "caps_lock"
+                                        "key_code": "spacebar"
                                     }
                                 ],
                                 "type": "basic"
@@ -74,7 +74,7 @@ Return
                             {
                                 "conditions": [
                                     {
-                                        "name": "caps_arrows_mode",
+                                        "name": "space_fn_mode",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -97,7 +97,7 @@ Return
                             {
                                 "conditions": [
                                     {
-                                        "name": "caps_arrows_mode",
+                                        "name": "space_fn_mode",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -120,7 +120,7 @@ Return
                             {
                                 "conditions": [
                                     {
-                                        "name": "caps_arrows_mode",
+                                        "name": "space_fn_mode",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -143,7 +143,7 @@ Return
                             {
                                 "conditions": [
                                     {
-                                        "name": "caps_arrows_mode",
+                                        "name": "space_fn_mode",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -166,7 +166,7 @@ Return
                             {
                                 "conditions": [
                                     {
-                                        "name": "caps_arrows_mode",
+                                        "name": "space_fn_mode",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -189,7 +189,7 @@ Return
                             {
                                 "conditions": [
                                     {
-                                        "name": "caps_arrows_mode",
+                                        "name": "space_fn_mode",
                                         "type": "variable_if",
                                         "value": 1
                                     }
