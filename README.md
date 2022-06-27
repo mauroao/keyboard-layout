@@ -15,31 +15,20 @@ I am using 60% keyboards with no QMK firmware support.
   ```
 RAlt::RControl
 
-Space::return
+CapsLock::
+	KeyWait, CapsLock
+	If (A_PriorKey="CapsLock")
+		SetCapsLockState, % GetKeyState("CapsLock","T") ? "Off" : "On"
+Return
 
-Space Up::
-    if (A_PriorKey = "Space")
-    {
-        Send {Space}
-    }
-    return
-
-Space & k::Up
-Space & h::Left
-Space & j::Down
-Space & l::Right
-
-Space & `;::`
-Space & '::~
-
-Space & c::^c ; copy
-Space & x::^x ; cut
-Space & v::^v ; paste
-Space & z::^z ; undo 
-Space & a::^a ; select all
-Space & t::^t ; new tab 
-Space & m::#m ; minimize all
-
+#If, GetKeyState("CapsLock", "P") 
+	h::Left
+	j::Down
+	k::Up
+	l::Right
+	`;::`
+	'::~
+#If
   ```
 3. Double click on `script.ahk` script;
 4. Make sure script is running (look for an AutoHotkey icon on windows status bar);
@@ -53,16 +42,16 @@ Space & m::#m ; minimize all
 
   ```json
                     {
-                        "description": "Space FN Mode",
+                        "description": "Caps Lock + I/J/K/L to Arrow Keys, Caps + ; and ' to ` and ~ ",
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "spacebar"
+                                    "key_code": "caps_lock"
                                 },
                                 "to": [
                                     {
                                         "set_variable": {
-                                            "name": "space_fn_mode",
+                                            "name": "caps_arrows_mode",
                                             "value": 1
                                         }
                                     }
@@ -70,14 +59,14 @@ Space & m::#m ; minimize all
                                 "to_after_key_up": [
                                     {
                                         "set_variable": {
-                                            "name": "space_fn_mode",
+                                            "name": "caps_arrows_mode",
                                             "value": 0
                                         }
                                     }
                                 ],
                                 "to_if_alone": [
                                     {
-                                        "key_code": "spacebar"
+                                        "key_code": "caps_lock"
                                     }
                                 ],
                                 "type": "basic"
@@ -85,7 +74,7 @@ Space & m::#m ; minimize all
                             {
                                 "conditions": [
                                     {
-                                        "name": "space_fn_mode",
+                                        "name": "caps_arrows_mode",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -108,7 +97,7 @@ Space & m::#m ; minimize all
                             {
                                 "conditions": [
                                     {
-                                        "name": "space_fn_mode",
+                                        "name": "caps_arrows_mode",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -131,7 +120,7 @@ Space & m::#m ; minimize all
                             {
                                 "conditions": [
                                     {
-                                        "name": "space_fn_mode",
+                                        "name": "caps_arrows_mode",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -154,7 +143,7 @@ Space & m::#m ; minimize all
                             {
                                 "conditions": [
                                     {
-                                        "name": "space_fn_mode",
+                                        "name": "caps_arrows_mode",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -177,7 +166,7 @@ Space & m::#m ; minimize all
                             {
                                 "conditions": [
                                     {
-                                        "name": "space_fn_mode",
+                                        "name": "caps_arrows_mode",
                                         "type": "variable_if",
                                         "value": 1
                                     }
@@ -200,7 +189,7 @@ Space & m::#m ; minimize all
                             {
                                 "conditions": [
                                     {
-                                        "name": "space_fn_mode",
+                                        "name": "caps_arrows_mode",
                                         "type": "variable_if",
                                         "value": 1
                                     }
