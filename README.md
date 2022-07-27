@@ -32,6 +32,7 @@ Return
   ```
 3. Double click on `script.ahk` script;
 4. Make sure script is running (look for an AutoHotkey icon on windows status bar);
+5. Click Win+R, type `shell:startup`, paste a shortcut to AutoHotKey script here;
 
 ## MAC Setup
 
