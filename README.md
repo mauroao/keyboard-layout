@@ -28,6 +28,7 @@ Return
 	l::Right
 	`;::`
 	'::~
+	/::\
 #If
   ```
 3. Double click on `script.ahk` script;
