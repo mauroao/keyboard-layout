@@ -31,6 +31,36 @@ Return
 	/::\
 #If
   ```
+If using v2, use this script instead:
+  ```
+#Requires AutoHotkey v2.0
+
+; Remap RAlt to RControl
+RAlt::RControl
+
+; Toggle CapsLock with double press
+CapsLock::
+{
+    KeyWait "CapsLock"
+    if (A_PriorKey == "CapsLock") {
+        SetCapsLockState GetKeyState("CapsLock", "T") ? "Off" : "On"
+    }
+}
+
+; Only active when CapsLock is on
+#HotIf GetKeyState("CapsLock", "P")
+
+h::Send("{Left}")
+j::Send("{Down}")
+k::Send("{Up}")
+l::Send("{Right}")
+`;::Send("{`}")
+'::Send("{~}")
+/::Send("{\\}")
+
+#HotIf
+
+  ```
 3. Double click on `script.ahk` script;
 4. Make sure script is running (look for an AutoHotkey icon on windows status bar);
 5. Click Win+R, type `shell:startup`, paste a shortcut to AutoHotKey script here;
