@@ -99,7 +99,8 @@ l::Send("{Right}")
                                 ],
                                 "to_if_alone": [
                                     {
-                                        "key_code": "caps_lock"
+                                        "key_code": "caps_lock",
+                                        "hold_down_milliseconds": 100
                                     }
                                 ],
                                 "type": "basic"
@@ -271,3 +272,36 @@ l::Send("{Right}")
                     }
 
   ```
+
+## Troubleshooting
+
+### CAPS LOCK Quick Tap Not Working on macOS Sequoia
+
+**Symptoms:**
+- CAPS LOCK works as a modifier when held down (CAPS + H/J/K/L for arrow navigation works)
+- Quick tap on CAPS LOCK does not toggle caps lock state
+- Issue occurs after updating to macOS Sequoia on M1 MacBook with Karabiner-Elements 15.1.0+
+
+**Cause:**
+macOS Sequoia introduced "accidental keystroke prevention" for CAPS LOCK that requires a minimum 100ms press duration. The configuration needs to specify this timing parameter.
+
+**Solution:**
+Verify that the `to_if_alone` block includes the `hold_down_milliseconds` parameter:
+
+```json
+"to_if_alone": [
+    {
+        "key_code": "caps_lock",
+        "hold_down_milliseconds": 100
+    }
+],
+```
+
+**Steps to Apply Fix:**
+1. Update your karabiner.json file with the corrected configuration above
+2. Fully quit Karabiner-Elements (don't just close the window - quit from menu bar)
+3. Reopen Karabiner-Elements
+4. Test quick tap: Quickly tap CAPS LOCK - it should toggle caps lock state
+5. Test hold behavior: Hold CAPS LOCK + H/J/K/L - arrow navigation should work
+
+**Reference:** [Karabiner-Elements Issue #3949](https://github.com/pqrs-org/Karabiner-Elements/issues/3949)
