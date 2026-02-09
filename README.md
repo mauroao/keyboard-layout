@@ -5,7 +5,7 @@
 
 ## What is this used for?
 
-This is a configuration guide to setup my keyboard shortcuts on MAC and Windows.  
+This is a configuration guide to setup my keyboard shortcuts on MAC, Windows and Linux.
 I am using 60% keyboards with no QMK firmware support.
 
 ## Windows setup
@@ -272,6 +272,45 @@ l::Send("{Right}")
                     }
 
   ```
+
+## Linux Setup (Ubuntu 24.04+)
+
+This setup uses [keyd](https://github.com/rvaiya/keyd), a lightweight key remapping daemon that operates at the kernel level (evdev/uinput). It works on **X11, Wayland, and even TTY**.
+
+1. Install keyd and enable the service:
+   ```bash
+   sudo apt install keyd
+   sudo systemctl enable --now keyd
+   ```
+
+2. Create the configuration file `/etc/keyd/default.conf`:
+   ```ini
+   [ids]
+   *
+
+   [main]
+   capslock = overload(nav, capslock)
+   rightalt = rightcontrol
+
+   [nav]
+   h = left
+   j = down
+   k = up
+   l = right
+   semicolon = grave
+   apostrophe = S-grave
+   slash = backslash
+   ```
+
+3. Reload the configuration:
+   ```bash
+   sudo keyd reload
+   ```
+
+4. Useful commands for debugging:
+   - `keyd list` — list detected keyboards
+   - `sudo keyd monitor` — monitor key events in real time
+   - `sudo keyd reload` — reload configuration after changes
 
 ## Troubleshooting
 
